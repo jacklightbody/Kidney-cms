@@ -234,6 +234,7 @@ Class BlogFramework{
 			also does a bit of logic to determine the template we want, and translate the message into markdown
 		*/
     	if(!is_array($emails)||sizeof($emails)<1){
+    		header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found', true, 404);
     		Events::runSilent('page_not_found',$path);
     		$fourohfourpath='themes/default/page_not_found.php';
     		if(file_exists('themes/'.ACTIVE_THEME_HANDLE.'/page_not_found.php')){
